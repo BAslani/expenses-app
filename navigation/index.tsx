@@ -1,31 +1,27 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
-import TabNavigator from './tab-navigator';
-import Modal from '../screens/modal';
+import ManageExpense from 'screens/ManageExpense'
+import ExpensecOverview from './ExpensesOverview'
 
 export type RootStackParamList = {
-  TabNavigator: undefined;
-  Modal: undefined;
-};
+  ManageExpense: undefined
+  ExpensesOverview: undefined
+}
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>()
 
 export default function RootStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="TabNavigator">
+      <Stack.Navigator>
         <Stack.Screen
-          name="TabNavigator"
-          component={TabNavigator}
+          name='ExpensesOverview'
+          component={ExpensecOverview}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="Modal"
-          component={Modal}
-          options={{ presentation: 'modal', headerLeft: () => null }}
-        />
+        <Stack.Screen name='ManageExpense' component={ManageExpense} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }

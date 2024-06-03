@@ -1,5 +1,6 @@
-import { View, Text } from 'tamagui'
+import { View, Text, Button } from 'tamagui'
 import React from 'react'
+import { colors } from 'assets/colors'
 
 export type Expense = {
   id: string
@@ -8,11 +9,40 @@ export type Expense = {
   date: Date
 }
 
-const ExpenseItem = ({ id, title, amount, date }: Expense) => {
+const ExpenseItem = ({ title, amount, date }: Expense) => {
   return (
-    <View>
-      <Text>{title}</Text>
-    </View>
+    <Button elevate elevation={3} unstyled>
+      <View
+        fd={'row'}
+        jc={'space-between'}
+        br={6}
+        p={12}
+        marginVertical={8}
+        bg={colors.primary500}
+        shadowColor={colors.gray500}
+        shadowRadius={4}
+        shadowOffset={{ width: 1, height: 1 }}
+        shadowOpacity={0.4}
+      >
+        <View>
+          <Text color={colors.primary50} fos={16} mb={4} fow={'bold'}>
+            {title}
+          </Text>
+          <Text color={colors.primary50}>{date.toDateString()}</Text>
+        </View>
+        <View
+          miw={80}
+          px={12}
+          py={4}
+          bg={'white'}
+          jc={'center'}
+          ai={'center'}
+          br={4}
+        >
+          <Text color={colors.primary500}>{amount.toFixed(2)}</Text>
+        </View>
+      </View>
+    </Button>
   )
 }
 

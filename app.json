@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "expences",
-    "slug": "expences",
-    "version": "1.0.0",
+    "name": "expenses",
+    "slug": "expenses",
+    "version": "0.0.1",
 
     "web": {
       "favicon": "./assets/favicon.png"

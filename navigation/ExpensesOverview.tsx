@@ -5,6 +5,7 @@ import RecentExpenses from 'screens/RecentExpenses'
 import AllExpenses from 'screens/AllExpenses'
 import { RootStackParamList } from '.'
 import { Ionicons } from '@expo/vector-icons'
+import IconButton from 'components/UI/IconButton'
 
 const Tab = createBottomTabNavigator()
 
@@ -22,6 +23,16 @@ export default function ExpensecOverview({ navigation }: Props) {
           backgroundColor: '#3e04c3',
         },
         tabBarActiveTintColor: '#f7bc0c',
+        headerRight: ({ tintColor }) => (
+          <IconButton
+            icon='add'
+            size={24}
+            color={tintColor}
+            onPress={() => {
+              console.log('tapped')
+            }}
+          />
+        ),
       }}
     >
       <Tab.Screen

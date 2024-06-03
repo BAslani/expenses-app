@@ -1,6 +1,7 @@
 import React from 'react'
 import { FlatList } from 'react-native'
 import ExpenseItem, { type Expense } from './ExpenseItem'
+import { Text } from 'tamagui'
 
 type Props = {
   expenses: Expense[]
@@ -9,6 +10,7 @@ type Props = {
 const ExpensesList = ({ expenses }: Props) => {
   return (
     <FlatList
+      showsVerticalScrollIndicator={false}
       data={expenses}
       renderItem={({ item }) => <ExpenseItem {...item} />}
     />

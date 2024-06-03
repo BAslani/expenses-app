@@ -8,10 +8,18 @@ export type Expense = {
   amount: number
   date: Date
 }
+const expensePressHandler = () => {}
 
 const ExpenseItem = ({ title, amount, date }: Expense) => {
   return (
-    <Button elevate elevation={3} unstyled>
+    <Button
+      elevate
+      elevation={3}
+      unstyled
+      onPress={expensePressHandler}
+      animation={'quick'}
+      pressStyle={{ opacity: 0.75, scale: 0.98 }}
+    >
       <View
         fd={'row'}
         jc={'space-between'}

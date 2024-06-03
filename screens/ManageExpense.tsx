@@ -18,9 +18,17 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
     })
   }, [navigation, isEditing])
 
-  const deleteExpenseHandler = () => {}
-  const cancelHandler = () => {}
-  const confitmHandler = () => {}
+  const deleteExpenseHandler = () => {
+    navigation.goBack()
+  }
+
+  const cancelHandler = () => {
+    navigation.goBack()
+  }
+
+  const confitmHandler = () => {
+    navigation.goBack()
+  }
 
   return (
     <View f={1} p={24} bg={colors.primary800}>

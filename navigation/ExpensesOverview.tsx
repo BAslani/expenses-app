@@ -34,7 +34,7 @@ export default function ExpensecOverview({ navigation }: Props) {
             size={24}
             color={tintColor}
             onPress={() => {
-              navigation.navigate('ManageExpense')
+              navigation.navigate('ManageExpense', {})
             }}
           />
         ),

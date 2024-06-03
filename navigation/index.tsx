@@ -7,7 +7,7 @@ import { colors } from 'assets/colors'
 
 export type RootStackParamList = {
   ManageExpense: {
-    expenseId: string
+    expenseId?: string
   }
   ExpensesOverview: undefined
 }

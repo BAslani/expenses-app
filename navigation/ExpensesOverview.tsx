@@ -6,6 +6,7 @@ import AllExpenses from 'screens/AllExpenses'
 import { RootStackParamList } from '.'
 import { Ionicons } from '@expo/vector-icons'
 import IconButton from 'components/UI/IconButton'
+import { NavigationProp } from '@react-navigation/native'
 
 const Tab = createBottomTabNavigator()
 
@@ -14,7 +15,11 @@ type Props = StackScreenProps<RootStackParamList, 'ExpensesOverview'>
 export default function ExpensecOverview({ navigation }: Props) {
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({
+        navigation,
+      }: {
+        navigation: NavigationProp<RootStackParamList>
+      }) => ({
         headerStyle: {
           backgroundColor: '#3e04c3',
         },
@@ -29,11 +34,11 @@ export default function ExpensecOverview({ navigation }: Props) {
             size={24}
             color={tintColor}
             onPress={() => {
-              console.log('tapped')
+              navigation.navigate('ManageExpense')
             }}
           />
         ),
-      }}
+      })}
     >
       <Tab.Screen
         name='RecentExpenses'

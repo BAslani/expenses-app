@@ -1,6 +1,8 @@
 import { View, Text, Button } from 'tamagui'
 import React from 'react'
 import { colors } from 'assets/colors'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { RootStackParamList } from 'navigation'
 
 export type Expense = {
   id: string
@@ -8,9 +10,13 @@ export type Expense = {
   amount: number
   date: Date
 }
-const expensePressHandler = () => {}
 
-const ExpenseItem = ({ title, amount, date }: Expense) => {
+const ExpenseItem = ({ id, title, amount, date }: Expense) => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>()
+  const expensePressHandler = () => {
+    navigation.navigate('ManageExpense', { expenseId: id })
+  }
+
   return (
     <Button
       elevate

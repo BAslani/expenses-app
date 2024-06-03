@@ -1,12 +1,8 @@
+import ExpensesOutput from 'components/expenses/ExpensesOutput'
 import React from 'react'
-import { View, Text } from 'tamagui'
 
 const AllExpenses = () => {
-  return (
-    <View>
-      <Text>All Expenses</Text>
-    </View>
-  )
+  return <ExpensesOutput period='Total' />
 }
 
 export default AllExpenses

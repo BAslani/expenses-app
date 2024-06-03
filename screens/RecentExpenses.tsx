@@ -1,12 +1,8 @@
+import ExpensesOutput from 'components/expenses/ExpensesOutput'
 import React from 'react'
-import { View, Text } from 'tamagui'
 
 const RecentExpenses = () => {
-  return (
-    <View>
-      <Text>Recent Expenses</Text>
-    </View>
-  )
+  return <ExpensesOutput period='Last 7 Days' />
 }
 
 export default RecentExpenses

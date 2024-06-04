@@ -1,28 +1,27 @@
 import { View, Text } from 'tamagui'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import CustomInput from './CustomInput'
 import { CustomButton } from 'components/UI/CustomButton'
-import { ExpensesContext } from 'store/expensesContext'
+
 import { Expense } from 'components/expenses/ExpenseItem'
 
 type Props = {
   isEditing: boolean
   cancelHandler: () => void
   onSubmit: (expense: Omit<Expense, 'id'>) => void
-  expenseId?: string
+  defaultValues: Expense | undefined
 }
 
 const ExpenseForm = ({
   isEditing,
   cancelHandler,
-  expenseId,
   onSubmit,
+  defaultValues,
 }: Props) => {
-  const { addExpense, updateExpense } = useContext(ExpensesContext)
   const [inputValues, setInputValues] = useState({
-    amount: '',
-    date: '',
-    title: '',
+    amount: defaultValues ? defaultValues.amount.toString() : '',
+    date: defaultValues ? defaultValues.date.toISOString().slice(0, 10) : '',
+    title: defaultValues ? defaultValues.title.toString() : '',
   })
 
   const inputChangeHandler = (identifier: string, enteredValue: string) => {

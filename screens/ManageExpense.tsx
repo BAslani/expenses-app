@@ -14,8 +14,11 @@ type Props = StackScreenProps<RootStackParamList, 'ManageExpense'>
 const ManageExpense: FC<Props> = ({ route, navigation }) => {
   const editExpenseId = route.params?.expenseId
   const isEditing = !!editExpenseId
-  const { addExpense, deleteExpense, updateExpense } =
+  const { addExpense, deleteExpense, updateExpense, expenses } =
     useContext(ExpensesContext)
+  const selectedExpense = expenses.find(
+    (expense) => expense.id === editExpenseId
+  )
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -49,6 +52,7 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
         onSubmit={confitmHandler}
         isEditing={isEditing}
         cancelHandler={cancelHandler}
+        defaultValues={selectedExpense}
       />
       {isEditing && (
         <View mt={16} pt={8} btw={2} btc={colors.primary200} ai={'center'}>

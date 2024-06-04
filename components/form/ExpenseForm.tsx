@@ -1,9 +1,21 @@
 import { View, Text } from 'tamagui'
-import React from 'react'
+import React, { useState } from 'react'
 import CustomInput from './CustomInput'
 
 const ExpenseForm = () => {
-  const amountChangeHandler = () => {}
+  const [inputValues, setInputValues] = useState({
+    amount: '',
+    date: '',
+    description: '',
+  })
+  const inputChangeHandler = (identifier: string, enteredValue: string) => {
+    setInputValues((currentValues) => {
+      return {
+        ...currentValues,
+        [identifier]: enteredValue,
+      }
+    })
+  }
   return (
     <View mt={40} gap={16}>
       <Text fos={24} fow={'bold'} color={'#ffffff'} textAlign='center' mb={8}>
@@ -13,8 +25,9 @@ const ExpenseForm = () => {
         <CustomInput
           label='Amount'
           inputConfig={{
+            value: inputValues.amount,
             keyboardType: 'decimal-pad',
-            onChangeText: amountChangeHandler,
+            onChangeText: (value) => inputChangeHandler('amount', value),
           }}
         />
         <CustomInput
@@ -22,7 +35,7 @@ const ExpenseForm = () => {
           inputConfig={{
             placeholder: 'yyyy-mm-dd',
             maxLength: 10,
-            onChangeText: () => {},
+            onChangeText: (value) => inputChangeHandler('date', value),
           }}
         />
       </View>

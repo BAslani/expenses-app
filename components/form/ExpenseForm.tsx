@@ -4,6 +4,7 @@ import CustomInput from './CustomInput'
 import { CustomButton } from 'components/UI/CustomButton'
 
 import { Expense } from 'components/expenses/ExpenseItem'
+import { Alert } from 'react-native'
 
 type Props = {
   isEditing: boolean
@@ -39,7 +40,16 @@ const ExpenseForm = ({
       date: new Date(inputValues.date),
       title: inputValues.title,
     }
+    const amountValidation =
+      !isNaN(expenseData.amount) && expenseData.amount > 0
 
+    const dateValidation = expenseData.date.toString() !== 'Invalid Date'
+
+    const titleValidation = expenseData.title.trim().length > 0
+    if (!amountValidation || !dateValidation || !titleValidation) {
+      Alert.alert('Invalid input', 'Please check yout input values!')
+      return
+    }
     onSubmit(expenseData)
   }
 

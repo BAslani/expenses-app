@@ -2,10 +2,11 @@ import { StackScreenProps } from '@react-navigation/stack'
 import { colors } from 'assets/colors'
 import { CustomButton } from 'components/UI/CustomButton'
 import IconButton from 'components/UI/IconButton'
+import ExpenseForm from 'components/form/ExpenseForm'
 import { RootStackParamList } from 'navigation'
 import React, { FC, useContext, useLayoutEffect } from 'react'
 import { ExpensesContext } from 'store/expensesContext'
-import { View } from 'tamagui'
+import { Input, View } from 'tamagui'
 
 type Props = StackScreenProps<RootStackParamList, 'ManageExpense'>
 
@@ -47,7 +48,8 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
   }
 
   return (
-    <View f={1} p={24} bg={colors.primary800}>
+    <View f={1} p={24} bg={colors.primary800} gap={24}>
+      <ExpenseForm />
       <View fd={'row'} jc={'center'} ai={'center'} gap={16}>
         <CustomButton type='outlined' onPress={cancelHandler} minWidth={120}>
           Cancel

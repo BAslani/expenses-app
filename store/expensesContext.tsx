@@ -22,6 +22,7 @@ export const ExpensesContext = createContext<ExpensesContextState>(
 
 const ExpensesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [expenses, setExpenses] = useState<Expense[]>([])
+
   const addExpense = (expenseData: Omit<Expense, 'id'>) => {
     const newExpense: Expense = {
       id: Crypto.randomUUID(),

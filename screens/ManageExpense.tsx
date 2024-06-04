@@ -3,7 +3,8 @@ import { colors } from 'assets/colors'
 import { CustomButton } from 'components/UI/CustomButton'
 import IconButton from 'components/UI/IconButton'
 import { RootStackParamList } from 'navigation'
-import React, { FC, useLayoutEffect } from 'react'
+import React, { FC, useContext, useLayoutEffect } from 'react'
+import { ExpensesContext } from 'store/expensesContext'
 import { View } from 'tamagui'
 
 type Props = StackScreenProps<RootStackParamList, 'ManageExpense'>
@@ -11,6 +12,8 @@ type Props = StackScreenProps<RootStackParamList, 'ManageExpense'>
 const ManageExpense: FC<Props> = ({ route, navigation }) => {
   const editExpenseId = route.params?.expenseId
   const isEditing = !!editExpenseId
+  const { addExpense, deleteExpense, updateExpense } =
+    useContext(ExpensesContext)
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -19,6 +22,9 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
   }, [navigation, isEditing])
 
   const deleteExpenseHandler = () => {
+    if (editExpenseId) {
+      deleteExpense(editExpenseId)
+    }
     navigation.goBack()
   }
 
@@ -27,6 +33,16 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
   }
 
   const confitmHandler = () => {
+    if (editExpenseId) {
+      updateExpense({
+        title: 'ssd',
+        amount: 30,
+        date: new Date('2024-05-23'),
+        id: editExpenseId,
+      })
+    } else {
+      addExpense({ title: 'mobile', amount: 300, date: new Date('2024-04-13') })
+    }
     navigation.goBack()
   }
 

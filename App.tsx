@@ -8,6 +8,7 @@ import { TamaguiProvider } from 'tamagui'
 import RootStack from './navigation'
 import config from './tamagui.config'
 import { StatusBar } from 'expo-status-bar'
+import ExpensesContextProvider from 'store/expensesContext'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -30,7 +31,9 @@ export default function App() {
   return (
     <TamaguiProvider config={config}>
       <StatusBar style='light' />
-      <RootStack />
+      <ExpensesContextProvider>
+        <RootStack />
+      </ExpensesContextProvider>
     </TamaguiProvider>
   )
 }

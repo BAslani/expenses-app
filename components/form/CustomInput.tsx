@@ -19,7 +19,7 @@ const CustomInput = ({ label, inputConfig, bgGray }: Props) => {
         {...inputConfig}
         bg={bgGray ? colors.primary500 : colors.primary100}
         p={6}
-        br={6}
+        br={8}
         fos={18}
         color={colors.primary700}
         minHeight={inputConfig.multiline ? 100 : ''}

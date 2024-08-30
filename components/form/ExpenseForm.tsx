@@ -1,10 +1,12 @@
-import { View, Text } from 'tamagui'
+import { View, Text, Button } from 'tamagui'
 import React, { useState } from 'react'
 import CustomInput from './CustomInput'
 import { CustomButton } from 'components/UI/CustomButton'
 
 import { Expense } from 'components/expenses/ExpenseItem'
-import { Alert } from 'react-native'
+import { Alert, Platform } from 'react-native'
+import DateTimePicker from '@react-native-community/datetimepicker'
+import { colors } from 'assets/colors'
 
 type Props = {
   isEditing: boolean
@@ -21,9 +23,11 @@ const ExpenseForm = ({
 }: Props) => {
   const [inputValues, setInputValues] = useState({
     amount: defaultValues ? defaultValues.amount.toString() : '',
-    date: defaultValues ? defaultValues.date.toISOString().slice(0, 10) : '',
+    date: defaultValues ? new Date(defaultValues.date) : new Date(),
     title: defaultValues ? defaultValues.title.toString() : '',
   })
+
+  const [showDatePicker, setShowDatePicker] = useState(false)
 
   const inputChangeHandler = (identifier: string, enteredValue: string) => {
     setInputValues((currentValues) => {
@@ -32,6 +36,16 @@ const ExpenseForm = ({
         [identifier]: enteredValue,
       }
     })
+  }
+
+  const dateChangeHandler = (event: any, selectedDate?: Date) => {
+    setShowDatePicker(false)
+    if (selectedDate) {
+      setInputValues((currentValues) => ({
+        ...currentValues,
+        date: selectedDate,
+      }))
+    }
   }
 
   const submitHandler = () => {
@@ -47,7 +61,7 @@ const ExpenseForm = ({
 
     const titleValidation = expenseData.title.trim().length > 0
     if (!amountValidation || !dateValidation || !titleValidation) {
-      Alert.alert('Invalid input', 'Please check yout input values!')
+      Alert.alert('Invalid input', 'Please check your input values!')
       return
     }
     onSubmit(expenseData)
@@ -58,7 +72,7 @@ const ExpenseForm = ({
       <Text fos={24} fow={'bold'} color={'#ffffff'} textAlign='center' mb={8}>
         Your Expense
       </Text>
-      <View fd={'row'} jc={'space-between'}>
+      <View fd={'row'} jc={'space-between'} gap={12}>
         <CustomInput
           label='Amount'
           inputConfig={{
@@ -67,15 +81,28 @@ const ExpenseForm = ({
             onChangeText: (value) => inputChangeHandler('amount', value),
           }}
         />
-        <CustomInput
-          label='Date'
-          inputConfig={{
-            value: inputValues.date,
-            placeholder: 'yyyy-mm-dd',
-            maxLength: 10,
-            onChangeText: (value) => inputChangeHandler('date', value),
-          }}
-        />
+        <View gap={4} f={1}>
+          <Text fos={12} color={colors.primary500}>
+            Date
+          </Text>
+          <Button
+            unstyled
+            br={8}
+            p={8}
+            bg={colors.primary100}
+            onPress={() => setShowDatePicker(true)}
+          >
+            {inputValues.date.toISOString().slice(0, 10)}
+          </Button>
+          {showDatePicker && (
+            <DateTimePicker
+              value={inputValues.date}
+              mode='date'
+              display={Platform.OS === 'ios' ? 'inline' : 'default'}
+              onChange={dateChangeHandler}
+            />
+          )}
+        </View>
       </View>
       <CustomInput
         label='Description'

@@ -79,6 +79,7 @@ const ExpenseForm = ({
       </View>
       <CustomInput
         label='Description'
+        bgGray
         inputConfig={{
           multiline: true,
           value: inputValues.title,

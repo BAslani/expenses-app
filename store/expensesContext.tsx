@@ -9,16 +9,14 @@ type ExpensesContextState = {
   updateExpense: (expenseData: Expense) => void
 }
 
-const defaultExpensesContextState: ExpensesContextState = {
+const initialState: ExpensesContextState = {
   expenses: [],
   addExpense: () => {},
   deleteExpense: () => {},
   updateExpense: () => {},
 }
 
-export const ExpensesContext = createContext<ExpensesContextState>(
-  defaultExpensesContextState
-)
+export const ExpensesContext = createContext<ExpensesContextState>(initialState)
 
 const ExpensesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [expenses, setExpenses] = useState<Expense[]>([])

@@ -20,7 +20,7 @@ export default function RootStack() {
       <Stack.Navigator
         screenOptions={{
           headerStyle: { backgroundColor: colors.primary500 },
-          headerTintColor: '#ffffff',
+          headerTintColor: '#4d4d4d',
         }}
       >
         <Stack.Screen

@@ -1,7 +1,6 @@
 import React from 'react'
 import { FlatList } from 'react-native'
 import ExpenseItem, { type Expense } from './ExpenseItem'
-import { Text } from 'tamagui'
 
 type Props = {
   expenses: Expense[]

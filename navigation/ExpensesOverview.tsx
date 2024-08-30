@@ -21,11 +21,13 @@ export default function ExpensecOverview({ navigation }: Props) {
         navigation: NavigationProp<RootStackParamList>
       }) => ({
         headerStyle: {
-          backgroundColor: '#3e04c3',
+          backgroundColor: '#cccccc',
         },
-        headerTintColor: '#fff',
+        headerTintColor: '#4d4d4d',
         tabBarStyle: {
-          backgroundColor: '#3e04c3',
+          backgroundColor: '#cccccc',
+          height: 60,
+          paddingBottom: 8,
         },
         tabBarActiveTintColor: '#f7bc0c',
         headerRight: ({ tintColor }) => (

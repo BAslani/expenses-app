@@ -47,7 +47,7 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
   }
 
   return (
-    <View f={1} p={24} bg={colors.primary800}>
+    <View f={1} p={24} bg={colors.primary700}>
       <ExpenseForm
         onSubmit={confitmHandler}
         isEditing={isEditing}

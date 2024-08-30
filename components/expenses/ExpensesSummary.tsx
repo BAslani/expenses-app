@@ -15,17 +15,17 @@ const ExpensesSummary = ({ period, expenses }: Props) => {
 
   return (
     <View
-      p={8}
-      bg={colors.primary50}
+      p={12}
+      bg={colors.primary100}
       br={6}
       fd={'row'}
       jc={'space-between'}
       ai={'center'}
     >
-      <Text fos={12} color={colors.primary400}>
+      <Text fos={16} color={'white'}>
         {period}
       </Text>
-      <Text fos={16} fow={'bold'} color={colors.primary500}>
+      <Text fos={16} fow={'bold'} color={'white'}>
         ${expensesSum.toFixed(2)}
       </Text>
     </View>

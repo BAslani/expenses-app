@@ -39,7 +39,7 @@ const ExpenseItem = ({ id, title, amount, date }: Expense) => {
         shadowOpacity={0.4}
       >
         <View>
-          <Text color={colors.primary50} fos={16} mb={4} fow={'bold'}>
+          <Text color={colors.primary700} fos={16} mb={4} fow={'bold'}>
             {title}
           </Text>
           <Text color={colors.primary50}>{date.toDateString()}</Text>
@@ -53,7 +53,7 @@ const ExpenseItem = ({ id, title, amount, date }: Expense) => {
           ai={'center'}
           br={4}
         >
-          <Text color={colors.primary500}>{amount.toFixed(2)}</Text>
+          <Text color={colors.primary100}>$ {amount.toFixed(2)}</Text>
         </View>
       </View>
     </Button>

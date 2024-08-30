@@ -4,7 +4,7 @@ import { styled, Button } from 'tamagui'
 export const CustomButton = styled(Button, {
   br: 4,
   p: 8,
-  bg: colors.primary500,
+  bg: colors.primary100,
   color: colors.primary50,
   ai: 'center',
   animation: 'quick',

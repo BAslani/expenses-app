@@ -13,14 +13,14 @@ type Props = {
 
 const ExpensesOutput = ({ period, expenses, fallbackText }: Props) => {
   return (
-    <View f={1} px={24} pt={24} bg={colors.primary700}>
+    <View f={1} px={24} pt={24} bg={colors.primary700} gap={12}>
       <ExpensesSummary period={period} expenses={expenses} />
       {expenses.length === 0 ? (
         <Text color={'#ffffff'} fos={16} textAlign='center' mt={32}>
           {fallbackText}
         </Text>
       ) : (
-        <ExpensesList expenses={expenses} />
+        <ExpensesList expenses={expenses.reverse()} />
       )}
     </View>
   )

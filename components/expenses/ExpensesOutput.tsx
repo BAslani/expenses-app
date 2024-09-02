@@ -20,7 +20,7 @@ const ExpensesOutput = ({ period, expenses, fallbackText }: Props) => {
           {fallbackText}
         </Text>
       ) : (
-        <ExpensesList expenses={expenses.reverse()} />
+        <ExpensesList expenses={expenses} />
       )}
     </View>
   )

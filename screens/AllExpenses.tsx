@@ -1,9 +1,21 @@
 import ExpensesOutput from 'components/expenses/ExpensesOutput'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { fetchExpenses } from 'services/crud'
 import { ExpensesContext } from 'store/expensesContext'
 
 const AllExpenses = () => {
-  const { expenses } = useContext(ExpensesContext)
+  const { expenses, setExpenses } = useContext(ExpensesContext)
+  useEffect(() => {
+    try {
+      fetchExpenses().then((response) => {
+        if (response) {
+          setExpenses(response)
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
   return (
     <ExpensesOutput
       period='Total'

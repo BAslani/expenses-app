@@ -17,6 +17,8 @@ const ExpenseItem = ({ id, title, amount, date }: Expense) => {
     navigation.navigate('ManageExpense', { expenseId: id })
   }
 
+  const newDate = new Date(date)
+
   return (
     <Button
       elevate
@@ -42,7 +44,7 @@ const ExpenseItem = ({ id, title, amount, date }: Expense) => {
           <Text color={colors.primary700} fos={16} mb={4} fow={'bold'}>
             {title}
           </Text>
-          <Text color={colors.primary50}>{date.toDateString()}</Text>
+          <Text color={colors.gray500}>{newDate.toDateString()}</Text>
         </View>
         <View
           miw={80}

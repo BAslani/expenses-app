@@ -7,6 +7,7 @@ type ExpensesContextState = {
   addExpense: (expenseData: Omit<Expense, 'id'>) => void
   deleteExpense: (id: string) => void
   updateExpense: (expenseData: Expense) => void
+  setExpenses: React.Dispatch<React.SetStateAction<Expense[]>>
 }
 
 const initialState: ExpensesContextState = {
@@ -14,6 +15,7 @@ const initialState: ExpensesContextState = {
   addExpense: () => {},
   deleteExpense: () => {},
   updateExpense: () => {},
+  setExpenses: () => {},
 }
 
 export const ExpensesContext = createContext<ExpensesContextState>(initialState)
@@ -46,6 +48,7 @@ const ExpensesContextProvider: FC<PropsWithChildren> = ({ children }) => {
     addExpense,
     deleteExpense,
     updateExpense,
+    setExpenses,
   }
 
   return (

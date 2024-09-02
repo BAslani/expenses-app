@@ -1,13 +1,17 @@
 import { StackScreenProps } from '@react-navigation/stack'
 import { colors } from 'assets/colors'
-import { CustomButton } from 'components/UI/CustomButton'
 import IconButton from 'components/UI/IconButton'
 import { Expense } from 'components/expenses/ExpenseItem'
 import ExpenseForm from 'components/form/ExpenseForm'
 import { RootStackParamList } from 'navigation'
 import React, { FC, useContext, useLayoutEffect } from 'react'
+import {
+  createExpense,
+  deleteExpenseServer,
+  updateExpenseServer,
+} from 'services/crud'
 import { ExpensesContext } from 'store/expensesContext'
-import { Input, View } from 'tamagui'
+import { View } from 'tamagui'
 
 type Props = StackScreenProps<RootStackParamList, 'ManageExpense'>
 
@@ -29,6 +33,7 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
   const deleteExpenseHandler = () => {
     if (editExpenseId) {
       deleteExpense(editExpenseId)
+      deleteExpenseServer(editExpenseId)
     }
     navigation.goBack()
   }
@@ -37,11 +42,13 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
     navigation.goBack()
   }
 
-  const confitmHandler = (expenseData: Omit<Expense, 'id'>) => {
+  const confirmHandler = (expenseData: Omit<Expense, 'id'>) => {
     if (editExpenseId) {
       updateExpense({ ...expenseData, id: editExpenseId })
+      updateExpenseServer({ ...expenseData, id: editExpenseId })
     } else {
       addExpense(expenseData)
+      createExpense(expenseData)
     }
     navigation.goBack()
   }
@@ -49,7 +56,7 @@ const ManageExpense: FC<Props> = ({ route, navigation }) => {
   return (
     <View f={1} p={24} bg={colors.primary700}>
       <ExpenseForm
-        onSubmit={confitmHandler}
+        onSubmit={confirmHandler}
         isEditing={isEditing}
         cancelHandler={cancelHandler}
         defaultValues={selectedExpense}

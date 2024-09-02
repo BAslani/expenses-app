@@ -2039,6 +2039,63 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
+"@supabase/auth-js@2.65.0":
+  version "2.65.0"
+  resolved "https://registry.yarnpkg.com/@supabase/auth-js/-/auth-js-2.65.0.tgz#e345c492f8cbc31cd6289968eae0e349ff0f39e9"
+  integrity sha512-+wboHfZufAE2Y612OsKeVP4rVOeGZzzMLD/Ac3HrTQkkY4qXNjI6Af9gtmxwccE5nFvTiF114FEbIQ1hRq5uUw==
+  dependencies:
+    "@supabase/node-fetch" "^2.6.14"
+
+"@supabase/functions-js@2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@supabase/functions-js/-/functions-js-2.4.1.tgz#373e75f8d3453bacd71fb64f88d7a341d7b53ad7"
+  integrity sha512-8sZ2ibwHlf+WkHDUZJUXqqmPvWQ3UHN0W30behOJngVh/qHHekhJLCFbh0AjkE9/FqqXtf9eoVvmYgfCLk5tNA==
+  dependencies:
+    "@supabase/node-fetch" "^2.6.14"
+
+"@supabase/node-fetch@2.6.15", "@supabase/node-fetch@^2.6.14":
+  version "2.6.15"
+  resolved "https://registry.yarnpkg.com/@supabase/node-fetch/-/node-fetch-2.6.15.tgz#731271430e276983191930816303c44159e7226c"
+  integrity sha512-1ibVeYUacxWYi9i0cf5efil6adJ9WRyZBLivgjs+AUpewx1F3xPi7gLgaASI2SmIQxPoCEjAsLAzKPgMJVgOUQ==
+  dependencies:
+    whatwg-url "^5.0.0"
+
+"@supabase/postgrest-js@1.15.8":
+  version "1.15.8"
+  resolved "https://registry.yarnpkg.com/@supabase/postgrest-js/-/postgrest-js-1.15.8.tgz#827aaa408cdbc89e67d0a758e7a545ac86e34312"
+  integrity sha512-YunjXpoQjQ0a0/7vGAvGZA2dlMABXFdVI/8TuVKtlePxyT71sl6ERl6ay1fmIeZcqxiuFQuZw/LXUuStUG9bbg==
+  dependencies:
+    "@supabase/node-fetch" "^2.6.14"
+
+"@supabase/realtime-js@2.10.2":
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-2.10.2.tgz#c2b42d17d723d2d2a9146cfad61dc3df1ce3127e"
+  integrity sha512-qyCQaNg90HmJstsvr2aJNxK2zgoKh9ZZA8oqb7UT2LCh3mj9zpa3Iwu167AuyNxsxrUE8eEJ2yH6wLCij4EApA==
+  dependencies:
+    "@supabase/node-fetch" "^2.6.14"
+    "@types/phoenix" "^1.5.4"
+    "@types/ws" "^8.5.10"
+    ws "^8.14.2"
+
+"@supabase/storage-js@2.7.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@supabase/storage-js/-/storage-js-2.7.0.tgz#9ff322d2c3b141087aa34115cf14205e4980ce75"
+  integrity sha512-iZenEdO6Mx9iTR6T7wC7sk6KKsoDPLq8rdu5VRy7+JiT1i8fnqfcOr6mfF2Eaqky9VQzhP8zZKQYjzozB65Rig==
+  dependencies:
+    "@supabase/node-fetch" "^2.6.14"
+
+"@supabase/supabase-js@^2.45.3":
+  version "2.45.3"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.45.3.tgz#d32b7a7b379958a10dcce32af1182f82b5b82218"
+  integrity sha512-4wAux6cuVMrdH/qUjKn6p3p3L9AtAO3Une6ojIrtpCj1RaXKVoyIATiacSRAI+pKff6XZBVCGC29v+z4Jo/uSw==
+  dependencies:
+    "@supabase/auth-js" "2.65.0"
+    "@supabase/functions-js" "2.4.1"
+    "@supabase/node-fetch" "2.6.15"
+    "@supabase/postgrest-js" "1.15.8"
+    "@supabase/realtime-js" "2.10.2"
+    "@supabase/storage-js" "2.7.0"
+
 "@tamagui/accordion@1.74.8":
   version "1.74.8"
   resolved "https://registry.yarnpkg.com/@tamagui/accordion/-/accordion-1.74.8.tgz#951123a6c55c1aa6b555d4f6441038c7a29b75ab"
@@ -2995,6 +3052,11 @@
   dependencies:
     undici-types "~5.26.4"
 
+"@types/phoenix@^1.5.4":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@types/phoenix/-/phoenix-1.6.5.tgz#5654e14ec7ad25334a157a20015996b6d7d2075e"
+  integrity sha512-xegpDuR+z0UqG9fwHqNoy3rI7JDlvaPh2TY47Fl80oq6g+hXT+c/LEuE43X48clZ6lOfANl5WrPur9fYO1RJ/w==
+
 "@types/prop-types@*":
   version "15.7.12"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.12.tgz#12bb1e2be27293c1406acb6af1c3f3a1481d98c6"
@@ -3017,6 +3079,13 @@
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.3.tgz#6209321eb2c1712a7e7466422b8cb1fc0d9dd5d8"
   integrity sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==
+
+"@types/ws@^8.5.10":
+  version "8.5.12"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.12.tgz#619475fe98f35ccca2a2f6c137702d85ec247b7e"
+  integrity sha512-3tPRkv1EtkDpzlgyKyI8pGsGZAGPEaXeu0DOj5DI25Ja91bdAYddYHbADRYVrZMRbfW+1l5YwXVDKohDJNQxkQ==
+  dependencies:
+    "@types/node" "*"
 
 "@types/yargs-parser@*":
   version "21.0.3"
@@ -7665,6 +7734,13 @@ react-native-screens@3.31.1:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+react-native-url-polyfill@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-url-polyfill/-/react-native-url-polyfill-2.0.0.tgz#db714520a2985cff1d50ab2e66279b9f91ffd589"
+  integrity sha512-My330Do7/DvKnEvwQc0WdcBnFPploYKp9CYlefDXzIdEaA+PAhDYllkvGeEroEzvc4Kzzj2O4yVdz8v6fjRvhA==
+  dependencies:
+    whatwg-url-without-unicode "8.0.0-3"
+
 react-native-web-internals@1.74.8:
   version "1.74.8"
   resolved "https://registry.yarnpkg.com/react-native-web-internals/-/react-native-web-internals-1.74.8.tgz#74d417965e8335e2c65eda10bf6ff78fd77462dd"
@@ -9327,6 +9403,11 @@ ws@^8.12.1:
   version "8.17.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.17.0.tgz#d145d18eca2ed25aaf791a183903f7be5e295fea"
   integrity sha512-uJq6108EgZMAl20KagGkzCKfMEjxmKvZHG7Tlq0Z6nOky7YF7aq4mOx6xK8TJ/i1LeK4Qus7INktacctDgY8Ow==
+
+ws@^8.14.2:
+  version "8.18.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.18.0.tgz#0d7505a6eafe2b0e712d232b42279f53bc289bbc"
+  integrity sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==
 
 xcode@^3.0.1:
   version "3.0.1"

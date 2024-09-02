@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler'
+import 'react-native-url-polyfill/auto'
 
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
